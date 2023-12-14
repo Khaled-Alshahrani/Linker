@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>company search</title>
+    <link rel="stylesheet" href="/style/style.css" />
+  </head>
+  <body>
+    <div class="window">
+      <div class="header">
+        <h2>What type of jobs you want to hire</h2>
+      </div>
+      <div class="options">
+        <form id="send-email">
+          <ul>
+            <!-- Just Example -->
+            <li>
+              <label class="checkbox-label">
+                <input type="checkbox" id="option1" name="option1" />
+                Software engineer
+              </label>
+            </li>
+            <li>
+              <label class="checkbox-label">
+                <input type="checkbox" id="option2" name="option2" />
+                Cloud architect
+              </label>
+            </li>
+            <li>
+              <label class="checkbox-label">
+                <input type="checkbox" id="option3" name="option3" />
+                Project manager
+              </label>
+            </li>
+            <li>
+              <label class="checkbox-label">
+                <input type="checkbox" id="option4" name="option4" />
+                Cyber security
+              </label>
+            </li>
+            <!-- Add more options as needed -->
+          </ul>
+
+          <label for="emailText">Email text:</label>
+          <textarea id="emailText" name="emailText" rows="4" cols="50"> </textarea>
+
+          <button type="submit">Send Email</button>
+        </form>
+      </div>
+    </div>
+    <script defer src="script.js"></script>
+    <script defer src="http://localhost:3000/socket.io/socket.it.js"></script>
+  </body>
+</html>
