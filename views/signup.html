@@ -8,7 +8,7 @@
   <body>
     <div class="signup-form">
       <h2>Signup</h2>
-      <form>
+      <form id="login-form">
         <div class="form-group">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" required />
@@ -17,20 +17,20 @@
           <label for="email">Email</label>
           <input type="email" id="email" name="email" required />
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="password">Password</label>
           <input type="password" id="password" name="password" required />
-        </div>
-        <div class="form-group">
+        </div> -->
+        <!-- <div class="form-group">
           <label for="phone">Phone Number</label>
           <input type="tel" id="phone" name="phone" required />
-        </div>
+        </div> -->
         <div class="form-group">
           <label for="role">Select Role:</label><br />
           <input type="radio" id="userRole" name="role" value="user" checked />
-          <label for="searcherRole">Job seracher</label>
-          <input type="radio" id="adminRole" name="role" value="admin" />
-          <label for="providerRole">Job provider</label>
+          <label for="userRole">Job seracher</label>
+          <input type="radio" id="userRole" name="role" value="admin" />
+          <label for="userRole">Job provider</label>
         </div>
 
         <a href="login.html" class="link">Already have an account?</a>
