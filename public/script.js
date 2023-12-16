@@ -1,31 +1,19 @@
-// import { io } from "socket.io-client";
-// const socket = io("http://localhost:3000");
-// const companyform = document.getElementById("post-job");
-// const emailText = document.getElementById("emailText");
-// const userform = document.getElementById("user-form");
+const socket = new WebSocket("wss://linker-env.eba-q38ztxpi.us-east-1.elasticbeanstalk.com"); // Replace with your EB backend WebSocket URL (wss:// for secure WebSocket)
 
-// socket.on("connect", () => {
-//   console.log("connected to server");
-// });
+// Event listener for when the WebSocket connection is established
+socket.addEventListener("open", () => {
+  console.log("Connected to WebSocket server");
+});
 
-// companyform.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   console.log("form submitted");
-//   const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-//   const message = emailText.value;
-//   socket.emit("send-email", { checkboxes, message });
-//   emailText.value = "";
-//   // code to save it to the database
-// });
-
-// userform.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   console.log("form submitted");
-//   const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-//   // code to save it to the database
-
-//   window.location.href = "http://localhost:5500/email-notification.html";
-// });
+// Event listener for incoming messages from the WebSocket server
+socket.addEventListener("message", (event) => {
+  console.log("Received message:", event.data);
+  // Handle the received message here (e.g., display it to the user)
+  const messageContainer = document.getElementById("notification");
+  const messageDiv = document.createElement("div");
+  messageDiv.textContent = message;
+  messageContainer.appendChild(messageDiv);
+});
 
 // signup form
 document.getElementById("signup-form").addEventListener("submit", function (event) {
