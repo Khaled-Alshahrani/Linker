@@ -1,4 +1,4 @@
-const socket = new WebSocket("wss://linker-env.eba-q38ztxpi.us-east-1.elasticbeanstalk.com"); // Replace with your EB backend WebSocket URL (wss:// for secure WebSocket)
+const socket = new WebSocket("wss://linker-env.eba-q38ztxpi.us-east-1.elasticbeanstalk.com");
 
 // Event listener for when the WebSocket connection is established
 socket.addEventListener("open", () => {
@@ -31,7 +31,7 @@ document.getElementById("signup-form").addEventListener("submit", function (even
   };
 
   // Send POST request to backend API
-  fetch("http://linker-env.eba-q38ztxpi.us-east-1.elasticbeanstalk.com/create", {
+  fetch("http://linker-env.eba-q38ztxpi.us-east-1.elasticbeanstalk.com/users/create", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -47,7 +47,7 @@ document.getElementById("signup-form").addEventListener("submit", function (even
     .then((data) => {
       console.log("Signup response:", data);
       // Handle success (e.g., show a success message to the user)
-      window.location.href = "http://linker-env.eba-q38ztxpi.us-east-1.elasticbeanstalk.com/login";
+      window.location.href = "login.html";
     })
     .catch((error) => {
       console.error("There was a problem with the fetch operation:", error);
@@ -56,7 +56,7 @@ document.getElementById("signup-form").addEventListener("submit", function (even
 });
 
 // login form
-document.getElementById("loginForm").addEventListener("submit", function (event) {
+document.getElementById("login-form").addEventListener("submit", function (event) {
   event.preventDefault(); // Prevent form submission
 
   // Get email input value
@@ -67,7 +67,7 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
   };
 
   // Send POST request to backend API for login
-  fetch("http://linker-env.eba-q38ztxpi.us-east-1.elasticbeanstalk.com/login", {
+  fetch("http://linker-env.eba-q38ztxpi.us-east-1.elasticbeanstalk.com/users/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -92,8 +92,10 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
 
       if (storedtype == "Job seracher") {
         // to add the job seeker page
+        window.location.href = "user-search.html";
       } else {
         // to add the company page
+        window.location.href = "company-search.html";
       }
     })
     .catch((error) => {
@@ -120,7 +122,7 @@ document.getElementById("postjob").addEventListener("submit", function (event) {
   };
 
   // Send POST request to backend API
-  fetch("http://linker-env.eba-q38ztxpi.us-east-1.elasticbeanstalk.com/Jobs/add", {
+  fetch("http://linker-env.eba-q38ztxpi.us-east-1.elasticbeanstalk.com/jobs/add", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -136,7 +138,7 @@ document.getElementById("postjob").addEventListener("submit", function (event) {
     .then((data) => {
       console.log("Job response:", data);
       // Handle success (e.g., show a success message to the user)
-      window.location.href = "http://linker-env.eba-q38ztxpi.us-east-1.elasticbeanstalk.com/job";
+      window.location.href = "company-search.html";
     })
     .catch((error) => {
       console.error("There was a problem with the fetch operation:", error);
